@@ -22,9 +22,15 @@ bot.sendText(user, "*Hello, Jose*", {
             [{ text: "C", callback_data: "c" }]
         ]
     }
+}).then(ctx => {
+    const { chat, message_id } = ctx;
+    bot.editText(chat.id, message_id, {
+        text: "Updated",
+        parse_mode: "Markdown"
+    });
 });
 
-bot.sendPhoto(user, "./assets/image.jpg", {
-    caption: "*Raccoon*",
-    parse_mode: "Markdown"
-});
+// bot.sendPhoto(user, "./assets/image.jpg", {
+//     caption: "*Raccoon*",
+//     parse_mode: "Markdown"
+// });

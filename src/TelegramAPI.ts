@@ -43,7 +43,9 @@ export class TelegramAPI implements API {
     }
 
     editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message> {
-        throw new Error("Method not implemented.");
+        const body = { chat_id: chatId, message_id: msgId, ...opt };
+        console.log(body);
+        return this.makeRequest<Message>("editMessageText", body);
     }
 
     deleteText(chatId: ChatId, msgId: number): Promise<boolean> {

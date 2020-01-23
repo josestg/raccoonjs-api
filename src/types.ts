@@ -1,3 +1,5 @@
+import { PathLike } from "fs";
+
 // This type represents an incoming update.
 export type Update = {
     // The update‘s unique identifier.
@@ -13,5 +15,66 @@ export type Update = {
 // This object represents a message.
 export type Message = {};
 
-// This object represents an incoming callback query from a callback button in an inline keyboard.
 export type CallbackQuery = {};
+
+// This type represents a unique identifier for
+// the target chat
+export type ChatId = number | string;
+
+export type SendTextOpt = {
+    parse_mod: "HTML" | "Markdown";
+    reply_markup: InlineKeyboardMarkup;
+};
+
+// This object represents an inline keyboard that appears
+// right next to the message it belongs to.
+export type InlineKeyboardMarkup = {
+    inline_keyboard: Array<Array<InlineKeyboardButton>>;
+};
+
+// This object represents one button of an inline keyboard.
+// You must use exactly one of the optional fields.
+export type InlineKeyboardButton = {
+    // Label text on the button
+    text: string;
+    // Optional. Data to be sent in a callback query
+    // to the bot when button is pressed, 1-64 bytes
+    callback_data?: string;
+};
+
+type sendPhotoOpt = {
+    // Optional	Photo caption (may also be used
+    // when resending photos by file_id), 0-1024 characters
+    caption?: string;
+    // Optional. Send Markdown or HTML, if you want Telegram
+    // apps to show bold, italic, fixed-width text or inline URLs in the media caption.
+    parse_mode?: string;
+    // Optional	Sends the message silently. Users will
+    // receive a notification with no sound.
+    disable_notification?: boolean;
+};
+
+type editTextOpt = {
+    // New text of the message
+    text: string;
+    parse_mode: string;
+    reply_markup: InlineKeyboardMarkup;
+};
+
+export type editCaptionOpt = {
+    // New caption of the message
+    caption: string;
+    parse_mode: string;
+    reply_markup: InlineKeyboardMarkup;
+};
+
+export interface API {
+    sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Message;
+    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Message;
+    deleteText(chatId: ChatId, msgId: number): boolean;
+
+    sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Message;
+    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Message;
+
+    answerCallbackQuery(id: string, text: string, showAlert: false);
+}

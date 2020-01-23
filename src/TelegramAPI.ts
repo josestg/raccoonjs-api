@@ -1,11 +1,10 @@
 import { format } from "util";
 import { request } from "https";
 import { createServer, IncomingMessage, ServerResponse } from "http";
+import { Update } from "./types";
 
 // Global vars
 const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
-
-type Update = {};
 
 export class TelegramAPI {
     constructor(private token: string, private host: string) {}

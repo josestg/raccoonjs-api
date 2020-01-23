@@ -148,6 +148,8 @@ export type editCaptionOpt = {
     reply_markup?: InlineKeyboardMarkup;
 };
 
+export type CommandHandler = (ctx: Message) => void;
+
 export interface API {
     sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message>;
     editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message>;

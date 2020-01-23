@@ -29,10 +29,15 @@ bot.startWebhook("/webhook", port, () => {
 //     }, 3000);
 // });
 
-bot.sendPhoto(user, "./assets/image.jpg", {
-    caption: "*Raccoon*",
-    parse_mode: "Markdown"
-}).then(ctx => {
-    const { chat, message_id } = ctx;
-    bot.editMessageCaption(chat.id, message_id, { caption: "Updated" });
+// bot.sendPhoto(user, "./assets/image.jpg", {
+//     caption: "*Raccoon*",
+//     parse_mode: "Markdown"
+// }).then(ctx => {
+//     const { chat, message_id } = ctx;
+//     bot.editMessageCaption(chat.id, message_id, { caption: "Updated" });
+// });
+
+bot.cmd("hello", ctx => {
+    const { chat } = ctx;
+    bot.sendText(chat.id, `Hello ${chat.first_name}`);
 });

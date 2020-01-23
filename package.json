@@ -11,7 +11,12 @@
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^13.1.8",
+        "@types/request-promise": "^4.1.45",
         "tslint": "^6.0.0",
         "typescript": "^3.7.5"
+    },
+    "dependencies": {
+        "request": "^2.88.0",
+        "request-promise": "^4.2.5"
     }
 }

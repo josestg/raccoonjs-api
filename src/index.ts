@@ -11,25 +11,28 @@ bot.startWebhook("/webhook", port, () => {
     console.log("Webhook started!");
 });
 
-bot.sendText(user, "*Hello, Jose*", {
-    parse_mode: "Markdown",
-    reply_markup: {
-        inline_keyboard: [
-            [
-                { text: "A", callback_data: "a" },
-                { text: "B", callback_data: "B" }
-            ],
-            [{ text: "C", callback_data: "c" }]
-        ]
-    }
+// bot.sendText(user, "*Hello, Jose*", {
+//     parse_mode: "Markdown",
+//     reply_markup: {
+//         inline_keyboard: [
+//             [
+//                 { text: "A", callback_data: "a" },
+//                 { text: "B", callback_data: "B" }
+//             ],
+//             [{ text: "C", callback_data: "c" }]
+//         ]
+//     }
+// }).then(ctx => {
+//     const { chat, message_id } = ctx;
+//     setTimeout(() => {
+//         bot.deleteText(chat.id, message_id);
+//     }, 3000);
+// });
+
+bot.sendPhoto(user, "./assets/image.jpg", {
+    caption: "*Raccoon*",
+    parse_mode: "Markdown"
 }).then(ctx => {
     const { chat, message_id } = ctx;
-    setTimeout(() => {
-        bot.deleteText(chat.id, message_id);
-    }, 3000);
+    bot.editMessageCaption(chat.id, message_id, { caption: "Updated" });
 });
-
-// bot.sendPhoto(user, "./assets/image.jpg", {
-//     caption: "*Raccoon*",
-//     parse_mode: "Markdown"
-// });

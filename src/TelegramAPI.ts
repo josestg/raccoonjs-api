@@ -4,7 +4,7 @@ import { createServer, IncomingMessage, ServerResponse } from "http";
 import { Update, ChatId, API, SendTextOpt, editCaptionOpt, editTextOpt, Message, sendPhotoOpt } from "./types";
 
 import * as rp from "request-promise";
-import { PathLike } from "fs";
+import { PathLike, createReadStream } from "fs";
 
 // Global vars
 const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
@@ -51,7 +51,12 @@ export class TelegramAPI implements API {
     }
 
     sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message> {
-        throw new Error("Method not implemented.");
+        const formData = {
+            chat_id: chatId,
+            photo: createReadStream(photo),
+            ...opt
+        };
+        return this.makeRequest("sendPhoto", formData, true);
     }
 
     editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message> {

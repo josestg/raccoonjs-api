@@ -23,3 +23,8 @@ bot.sendText(user, "*Hello, Jose*", {
         ]
     }
 });
+
+bot.sendPhoto(user, "./assets/image.jpg", {
+    caption: "*Raccoon*",
+    parse_mode: "Markdown"
+});

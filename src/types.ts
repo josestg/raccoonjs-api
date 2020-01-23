@@ -13,7 +13,87 @@ export type Update = {
 };
 
 // This object represents a message.
-export type Message = {};
+export type Message = {
+    //	Unique message identifier inside this chat
+    message_id: number;
+    // Optional. Sender, empty for messages sent to channels
+    from?: User;
+    // Conversation the message belongs to
+    chat: Chat;
+    // Date the message was sent in Unix time
+    date: number;
+
+    // Optional. For text messages,
+    // the actual UTF-8 text of the message, 0-4096 characters.
+    text?: string;
+    // Optional. Date the message was last edited in Unix time
+    edit_date?: number;
+
+    // Optional. For text messages, special entities like
+    // usernames, URLs, bot commands, etc. that appear in the text
+    entities: Array<MessageEntity>;
+
+    // Optional. Message is a photo, available sizes of the photo
+    photo?: Array<PhotoSize>;
+    reply_markup?: InlineKeyboardMarkup;
+};
+
+export type User = {
+    // Unique identifier for this user or bot
+    id: number;
+    // True, if this user is a bot
+    is_bot: boolean;
+    // User‘s or bot’s first name
+    first_name: string;
+    // Optional. User‘s or bot’s last name
+    last_name?: string;
+    // Optional. User‘s or bot’s username
+    username?: String;
+    // Optional. IETF language tag of the user's language
+    language_code?: String;
+};
+
+export type Chat = {
+    // Unique identifier for this chat
+    id: number;
+    // Type of chat, can be either “private”, “group”, “supergroup”
+    // or “channel”
+    type: string;
+    // Optional. Username, for private chats, supergroups
+    // and channels if available
+    username?: string;
+    // Optional. First name of the other party in a private chat
+    first_name?: string;
+    // Optional. Last name of the other party in a private chat
+    last_name?: string;
+};
+
+export type MessageEntity = {
+    // Type of the entity.
+    type: string;
+    // Offset in UTF-16 code units to the start of the entity
+    offset: number;
+    // Length of the entity in UTF-16 code units
+    length: number;
+    // Optional. For “text_link” only, url that
+    // will be opened after user taps on the text
+    url?: string;
+    // Optional. For “text_mention” only, the mentioned user
+    user?: User;
+};
+export type PhotoSize = {
+    // Identifier for this file, which can be used to download or reuse the file
+    file_id: string;
+    // Unique identifier for this file, which is supposed to be the same over time
+    // and for different bots. Can't be used to download or reuse the file.
+    file_unique_id: string;
+    // Photo width
+    width: number;
+    // Photo height
+    height: number;
+    // Optional. File size
+    file_size: number;
+};
 
 export type CallbackQuery = {};
 
@@ -57,15 +137,15 @@ export type sendPhotoOpt = {
 export type editTextOpt = {
     // New text of the message
     text: string;
-    parse_mode: string;
-    reply_markup: InlineKeyboardMarkup;
+    parse_mode?: string;
+    reply_markup?: InlineKeyboardMarkup;
 };
 
 export type editCaptionOpt = {
     // New caption of the message
     caption: string;
-    parse_mode: string;
-    reply_markup: InlineKeyboardMarkup;
+    parse_mode?: string;
+    reply_markup?: InlineKeyboardMarkup;
 };
 
 export interface API {

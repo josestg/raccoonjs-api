@@ -56,7 +56,7 @@ export class TelegramAPI implements API {
             photo: createReadStream(photo),
             ...opt
         };
-        return this.makeRequest("sendPhoto", formData, true);
+        return this.makeRequest<Message>("sendPhoto", formData, true);
     }
 
     editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message> {

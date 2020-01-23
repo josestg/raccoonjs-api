@@ -1,15 +1,16 @@
 import { format } from "util";
 import { request } from "https";
 import { createServer, IncomingMessage, ServerResponse } from "http";
-import { Update } from "./types";
+import { Update, ChatId, API, SendTextOpt, editCaptionOpt, editTextOpt, Message, sendPhotoOpt } from "./types";
 
 import * as rp from "request-promise";
+import { PathLike } from "fs";
 
 // Global vars
 const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
 const METHOD_URL = "https://api.telegram.org/bot%s/%s";
 
-export class TelegramAPI {
+export class TelegramAPI implements API {
     constructor(private token: string, private host: string) {}
 
     startWebhook(endpoint: string, port: number, cb: () => void): TelegramAPI {
@@ -34,6 +35,31 @@ export class TelegramAPI {
 
         if (error != null) console.error(error);
         return this;
+    }
+
+    sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message> {
+        const body = { text, chat_id: chatId, ...opt };
+        return this.makeRequest<Message>("sendMessage", body);
+    }
+
+    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message> {
+        throw new Error("Method not implemented.");
+    }
+
+    deleteText(chatId: ChatId, msgId: number): Promise<boolean> {
+        throw new Error("Method not implemented.");
+    }
+
+    sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message> {
+        throw new Error("Method not implemented.");
+    }
+
+    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message> {
+        throw new Error("Method not implemented.");
+    }
+
+    answerCallbackQuery(id: string, text: string, showAlert: false): Promise<boolean> {
+        throw new Error("Method not implemented.");
     }
 
     private forwardUpdate(update: Update) {

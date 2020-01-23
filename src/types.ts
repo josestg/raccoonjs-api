@@ -22,8 +22,8 @@ export type CallbackQuery = {};
 export type ChatId = number | string;
 
 export type SendTextOpt = {
-    parse_mod: "HTML" | "Markdown";
-    reply_markup: InlineKeyboardMarkup;
+    parse_mode?: "HTML" | "Markdown";
+    reply_markup?: InlineKeyboardMarkup;
 };
 
 // This object represents an inline keyboard that appears

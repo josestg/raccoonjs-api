@@ -42,7 +42,7 @@ export type InlineKeyboardButton = {
     callback_data?: string;
 };
 
-type sendPhotoOpt = {
+export type sendPhotoOpt = {
     // Optional	Photo caption (may also be used
     // when resending photos by file_id), 0-1024 characters
     caption?: string;
@@ -54,7 +54,7 @@ type sendPhotoOpt = {
     disable_notification?: boolean;
 };
 
-type editTextOpt = {
+export type editTextOpt = {
     // New text of the message
     text: string;
     parse_mode: string;
@@ -69,12 +69,12 @@ export type editCaptionOpt = {
 };
 
 export interface API {
-    sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Message;
-    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Message;
-    deleteText(chatId: ChatId, msgId: number): boolean;
+    sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message>;
+    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message>;
+    deleteText(chatId: ChatId, msgId: number): Promise<boolean>;
 
-    sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Message;
-    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Message;
+    sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message>;
+    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message>;
 
-    answerCallbackQuery(id: string, text: string, showAlert: false);
+    answerCallbackQuery(id: string, text: string, showAlert: false): Promise<boolean>;
 }

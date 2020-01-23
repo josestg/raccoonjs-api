@@ -24,10 +24,9 @@ bot.sendText(user, "*Hello, Jose*", {
     }
 }).then(ctx => {
     const { chat, message_id } = ctx;
-    bot.editText(chat.id, message_id, {
-        text: "Updated",
-        parse_mode: "Markdown"
-    });
+    setTimeout(() => {
+        bot.deleteText(chat.id, message_id);
+    }, 3000);
 });
 
 // bot.sendPhoto(user, "./assets/image.jpg", {

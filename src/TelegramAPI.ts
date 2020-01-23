@@ -68,13 +68,21 @@ export class TelegramAPI implements API {
 
     // Making requests
     // https://api.telegram.org/bot<token>/METHOD_NAME
-    private makeRequest<T>(method: string, body: any): Promise<T> {
+    private makeRequest<T>(method: string, payload: any, multipart: boolean = false): Promise<T> {
         return new Promise<T>((resolve, reject) => {
-            rp.post({
-                body,
+            const options = {
                 json: true,
                 uri: format(METHOD_URL, this.token, method)
-            })
+            };
+
+            if (multipart) {
+                options["headers"] = { "content-type": "multipart/form-data" };
+                options["formData"] = payload;
+            } else {
+                options["body"] = payload;
+            }
+
+            rp.post(options)
                 .then(res => {
                     const result: T = res.result;
                     resolve(result);

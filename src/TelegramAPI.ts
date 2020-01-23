@@ -3,8 +3,11 @@ import { request } from "https";
 import { createServer, IncomingMessage, ServerResponse } from "http";
 import { Update } from "./types";
 
+import * as rp from "request-promise";
+
 // Global vars
 const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
+const METHOD_URL = "https://api.telegram.org/bot%s/%s";
 
 export class TelegramAPI {
     constructor(private token: string, private host: string) {}
@@ -35,5 +38,23 @@ export class TelegramAPI {
 
     private forwardUpdate(update: Update) {
         console.log(update);
+    }
+
+    // Making requests
+    // https://api.telegram.org/bot<token>/METHOD_NAME
+    private makeRequest<T>(method: string, body: any): Promise<T> {
+        return new Promise<T>((resolve, reject) => {
+            rp.post({
+                body,
+                json: true,
+                uri: format(METHOD_URL, this.token, method)
+            })
+                .then(res => {
+                    const result: T = res.result;
+                    resolve(result);
+                })
+                .catch(err => reject(err))
+                .finally(() => console.log(method));
+        });
     }
 }

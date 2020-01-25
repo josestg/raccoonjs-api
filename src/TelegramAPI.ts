@@ -1,6 +1,9 @@
 import { format } from "util";
 import { request } from "https";
+import { PathLike, createReadStream } from "fs";
 import { createServer, IncomingMessage, ServerResponse } from "http";
+
+import { makeRequest } from "./services/telegram";
 import {
     Update,
     ChatId,
@@ -14,12 +17,8 @@ import {
     QueryHandler
 } from "./types";
 
-import * as rp from "request-promise";
-import { PathLike, createReadStream } from "fs";
-
 // Global vars
 const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
-const METHOD_URL = "https://api.telegram.org/bot%s/%s";
 
 export class TelegramAPI implements API {
     private state = new Map<string, CommandHandler>();
@@ -52,37 +51,71 @@ export class TelegramAPI implements API {
     }
 
     sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message> {
-        const body = { text, chat_id: chatId, ...opt };
-        return this.makeRequest<Message>("sendMessage", body);
+        return makeRequest<Message>({
+            method: "sendMessage",
+            payload: { chat_id: chatId, text, ...opt },
+            token: this.token
+        });
     }
 
     editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message> {
-        const body = { chat_id: chatId, message_id: msgId, ...opt };
-        return this.makeRequest<Message>("editMessageText", body);
+        return makeRequest<Message>({
+            method: "editMessageText",
+            token: this.token,
+            payload: {
+                chat_id: chatId,
+                message_id: msgId,
+                ...opt
+            }
+        });
     }
 
     deleteText(chatId: ChatId, msgId: number): Promise<boolean> {
-        const body = { chat_id: chatId, message_id: msgId };
-        return this.makeRequest<boolean>("deleteMessage", body);
+        return makeRequest<boolean>({
+            method: "deleteMessage",
+            token: this.token,
+            payload: {
+                chat_id: chatId,
+                message_id: msgId
+            }
+        });
     }
 
     sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message> {
-        const formData = {
-            chat_id: chatId,
-            photo: createReadStream(photo),
-            ...opt
-        };
-        return this.makeRequest<Message>("sendPhoto", formData, true);
+        return makeRequest<Message>({
+            method: "sendPhoto",
+            token: this.token,
+            multipart: true,
+            payload: {
+                chat_id: chatId,
+                photo: createReadStream(photo),
+                ...opt
+            }
+        });
     }
 
     editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message> {
-        const body = { chat_id: chatId, message_id: msgId, ...opt };
-        return this.makeRequest<Message>("editMessageCaption", body);
+        return makeRequest<Message>({
+            method: "editMessageCaption",
+            token: this.token,
+            payload: {
+                chat_id: chatId,
+                message_id: msgId,
+                ...opt
+            }
+        });
     }
 
     answerCallbackQuery(id: string, text: string, showAlert: boolean = false): Promise<boolean> {
-        const body = { callback_query_id: id, show_alert: showAlert, text };
-        return this.makeRequest<boolean>("answerCallbackQuery", body);
+        return makeRequest<boolean>({
+            method: "answerCallbackQuery",
+            token: this.token,
+            payload: {
+                text,
+                callback_query_id: id,
+                show_alert: showAlert
+            }
+        });
     }
 
     cmd(name: string, handler: CommandHandler) {
@@ -110,31 +143,5 @@ export class TelegramAPI implements API {
             if (this.callbackQueryHandler == null) throw new Error("Callback Query Handler no implements!");
             this.callbackQueryHandler.call(this, update.callback_query);
         }
-    }
-
-    // Making requests
-    // https://api.telegram.org/bot<token>/METHOD_NAME
-    private makeRequest<T>(method: string, payload: any, multipart: boolean = false): Promise<T> {
-        return new Promise<T>((resolve, reject) => {
-            const options = {
-                json: true,
-                uri: format(METHOD_URL, this.token, method)
-            };
-
-            if (multipart) {
-                options["headers"] = { "content-type": "multipart/form-data" };
-                options["formData"] = payload;
-            } else {
-                options["body"] = payload;
-            }
-
-            rp.post(options)
-                .then(res => {
-                    const result: T = res.result;
-                    resolve(result);
-                })
-                .catch(err => reject(err))
-                .finally(() => console.log(method));
-        });
     }
 }

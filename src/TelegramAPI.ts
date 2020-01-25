@@ -80,8 +80,9 @@ export class TelegramAPI implements API {
         return this.makeRequest<Message>("editMessageCaption", body);
     }
 
-    answerCallbackQuery(id: string, text: string, showAlert: false): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    answerCallbackQuery(id: string, text: string, showAlert: boolean = false): Promise<boolean> {
+        const body = { callback_query_id: id, show_alert: showAlert, text };
+        return this.makeRequest<boolean>("answerCallbackQuery", body);
     }
 
     cmd(name: string, handler: CommandHandler) {

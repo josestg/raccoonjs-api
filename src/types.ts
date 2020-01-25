@@ -48,9 +48,9 @@ export type User = {
     // Optional. User‘s or bot’s last name
     last_name?: string;
     // Optional. User‘s or bot’s username
-    username?: String;
+    username?: string;
     // Optional. IETF language tag of the user's language
-    language_code?: String;
+    language_code?: string;
 };
 
 export type Chat = {
@@ -97,7 +97,7 @@ export type PhotoSize = {
 
 export type CallbackQuery = {
     // Unique identifier for this query
-    id: String;
+    id: string;
     // Sender
     from: User;
     // Optional. Message with the callback button that originated the query.
@@ -109,7 +109,7 @@ export type CallbackQuery = {
     chat_instance: String;
     // Optional. Data associated with the callback button.
     // Be aware that a bad client can send arbitrary data in this field.
-    data?: String;
+    data?: string;
 };
 
 // This type represents a unique identifier for
@@ -174,5 +174,5 @@ export interface API {
     sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message>;
     editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message>;
 
-    answerCallbackQuery(id: string, text: string, showAlert: false): Promise<boolean>;
+    answerCallbackQuery(id: string, text: string, showAlert: boolean): Promise<boolean>;
 }

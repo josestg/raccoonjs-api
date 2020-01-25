@@ -78,5 +78,5 @@ bot.cmd("hello", ctx => {
 // );
 
 bot.on("callback_query", query => {
-    console.log(query.data);
+    bot.answerCallbackQuery(query.id, query.data, true);
 });

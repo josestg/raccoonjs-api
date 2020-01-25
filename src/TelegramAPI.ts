@@ -10,7 +10,8 @@ import {
     editTextOpt,
     Message,
     sendPhotoOpt,
-    CommandHandler
+    CommandHandler,
+    QueryHandler
 } from "./types";
 
 import * as rp from "request-promise";
@@ -22,6 +23,7 @@ const METHOD_URL = "https://api.telegram.org/bot%s/%s";
 
 export class TelegramAPI implements API {
     private state = new Map<string, CommandHandler>();
+    private callbackQueryHandler: QueryHandler = null;
 
     constructor(private token: string, private host: string) {}
 
@@ -90,6 +92,12 @@ export class TelegramAPI implements API {
         return this.state.delete(name);
     }
 
+    on(event: "callback_query", handler: QueryHandler) {
+        if (event == "callback_query") {
+            this.callbackQueryHandler = handler;
+        }
+    }
+
     private forwardUpdate(update: Update) {
         if (update.message && update.message.text) {
             const { text } = update.message;
@@ -97,6 +105,9 @@ export class TelegramAPI implements API {
                 const handler = this.state.get(text);
                 handler.call(this, update.message);
             }
+        } else if (update.callback_query) {
+            if (this.callbackQueryHandler == null) throw new Error("Callback Query Handler no implements!");
+            this.callbackQueryHandler.call(this, update.callback_query);
         }
     }
 

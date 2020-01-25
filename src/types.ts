@@ -95,7 +95,22 @@ export type PhotoSize = {
     file_size: number;
 };
 
-export type CallbackQuery = {};
+export type CallbackQuery = {
+    // Unique identifier for this query
+    id: String;
+    // Sender
+    from: User;
+    // Optional. Message with the callback button that originated the query.
+    // Note that message content and message date will not be available if the message is too old
+    message?: Message;
+
+    // Global identifier, uniquely corresponding to the chat to which
+    // the message with the callback button was sent. Useful for high scores in games.
+    chat_instance: String;
+    // Optional. Data associated with the callback button.
+    // Be aware that a bad client can send arbitrary data in this field.
+    data?: String;
+};
 
 // This type represents a unique identifier for
 // the target chat
@@ -149,6 +164,7 @@ export type editCaptionOpt = {
 };
 
 export type CommandHandler = (ctx: Message) => void;
+export type QueryHandler = (query: CallbackQuery) => void;
 
 export interface API {
     sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message>;

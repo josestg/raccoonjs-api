@@ -1,6 +1,6 @@
 dist
 assets
-
+examples
 # Logs
 logs
 *.log

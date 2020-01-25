@@ -1,7 +1,17 @@
 import { format } from "util";
 import { request } from "https";
 import { createServer, IncomingMessage, ServerResponse } from "http";
-import { Update, ChatId, API, SendTextOpt, editCaptionOpt, editTextOpt, Message, sendPhotoOpt } from "./types";
+import {
+    Update,
+    ChatId,
+    API,
+    SendTextOpt,
+    editCaptionOpt,
+    editTextOpt,
+    Message,
+    sendPhotoOpt,
+    CommandHandler
+} from "./types";
 
 import * as rp from "request-promise";
 import { PathLike, createReadStream } from "fs";
@@ -11,6 +21,8 @@ const WEBHOOK_URL = "https://api.telegram.org/bot%s/setWebhook?url=%s";
 const METHOD_URL = "https://api.telegram.org/bot%s/%s";
 
 export class TelegramAPI implements API {
+    private state = new Map<string, CommandHandler>();
+
     constructor(private token: string, private host: string) {}
 
     startWebhook(endpoint: string, port: number, cb: () => void): TelegramAPI {
@@ -70,8 +82,22 @@ export class TelegramAPI implements API {
         throw new Error("Method not implemented.");
     }
 
+    cmd(name: string, handler: CommandHandler) {
+        this.state.set(`/${name}`, handler);
+    }
+
+    delCmd(name: string): boolean {
+        return this.state.delete(name);
+    }
+
     private forwardUpdate(update: Update) {
-        console.log(update);
+        if (update.message && update.message.text) {
+            const { text } = update.message;
+            if (this.state.has(text)) {
+                const handler = this.state.get(text);
+                handler.call(this, update.message);
+            }
+        }
     }
 
     // Making requests

@@ -8,7 +8,7 @@ export const btn = (label, value) => {
 };
 
 export class Gird {
-    private M: Array<Array<InlineKeyboardButton>>;
+    private M: Array<Array<InlineKeyboardButton>> = null;
 
     constructor(private row: number, private col: number) {
         this.M = new Array(row);

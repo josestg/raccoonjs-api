@@ -118,8 +118,8 @@ export class TelegramAPI implements API {
         });
     }
 
-    cmd(name: string, handler: CommandHandler) {
-        this.state.set(`/${name}`, handler);
+    cmd(name: string, handler: CommandHandler): Map<string, CommandHandler> {
+        return this.state.set(`/${name}`, handler);
     }
 
     delCmd(name: string): boolean {

@@ -71,8 +71,12 @@ bot.cmd("hello", ctx => {
 //     reply_markup: grid.value
 // });
 
-bot.sendText(
-    user,
-    `Bold ${M.bold("Bold")}\nItalic ${M.italic("Italic")}\nLink ${M.link("Ini Link", "https://github.com/josestg")}`,
-    { parse_mode: "Markdown" }
-);
+// bot.sendText(
+//     user,
+//     `Bold ${M.bold("Bold")}\nItalic ${M.italic("Italic")}\nLink ${M.link("Ini Link", "https://github.com/josestg")}`,
+//     { parse_mode: "Markdown" }
+// );
+
+bot.on("callback_query", query => {
+    bot.answerCallbackQuery(query.id, query.data, true);
+});

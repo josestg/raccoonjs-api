@@ -5,13 +5,18 @@
     "main": "index.js",
     "scripts": {
         "start": "node dist/index.js",
-        "compile": "tsc"
+        "compile": "tsc",
+        "coverage": "jest --coverage",
+        "test": "jest"
     },
     "author": "Jose Sitanggang",
     "license": "MIT",
     "devDependencies": {
+        "@types/jest": "^24.9.1",
         "@types/node": "^13.1.8",
         "@types/request-promise": "^4.1.45",
+        "jest": "^25.1.0",
+        "ts-jest": "^25.0.0",
         "tslint": "^6.0.0",
         "typescript": "^3.7.5"
     },

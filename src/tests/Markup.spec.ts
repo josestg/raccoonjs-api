@@ -1,4 +1,4 @@
-import * as M from "./Markup";
+import * as M from "../Markup";
 
 test("Bold format in Markdown", () => {
     expect(M.bold("a")).toBe("*a*");

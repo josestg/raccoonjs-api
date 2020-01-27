@@ -22,7 +22,6 @@ In this tutorial we will first use `localhost` as a server to develop the Telegr
 
 ### Exposing `localhost` to the internet
 
-<hr>
 
 In order for bots to receive incoming updates from the Telegram server, `localhost` needs to be exposed to the internet. The trick is to use [Ngrok](https://ngrok.com/).
 
@@ -34,7 +33,6 @@ In this tutorial we use `PORT = 5000`
 
 ### Coding
 
-<hr>
 
 Here we will make a simple bot that makes the bot can respond back when the user sends **certain commands** to the bot. For example, when a user sends a message like this `"/hello"`, the bot will respond `"Hello, <your_name>"`
 

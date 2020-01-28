@@ -23,7 +23,7 @@ In this tutorial we will first use `localhost` as a server to develop the Telegr
 ### Exposing `localhost` to the internet
 
 
-In order for bots to receive incoming updates from the Telegram server, `localhost` needs to be exposed to the internet. The trick is to use [Ngrok](https://ngrok.com/).
+In order for bots to receive incoming updates from the Telegram server, `localhost` needs to be exposed to the internet using [Ngrok](https://ngrok.com/).
 
 ```bash
 $ ngork http <PORT>

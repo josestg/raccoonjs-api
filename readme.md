@@ -16,6 +16,11 @@ or
 $ npm i raccoon-api
 ```
 
+## Documentation
+See **racoon-api** documentation [here](https://josestg.github.io/raccoon-api/).
+
+
+
 ## Tutorial
 
 In this tutorial we will first use `localhost` as a server to develop the Telegram bot, but at the end of this tutorial we will try to change `localhost` to [Heroku](https://dashboard.heroku.com/) as a server.

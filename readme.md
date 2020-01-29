@@ -2,6 +2,9 @@
 
 <div align="center">
     A simple nodejs module to interact with Telegram Bot API.
+    
+[![Build Status](https://travis-ci.org/josestg/raccoon-api.svg?branch=master)](https://travis-ci.org/josestg/raccoon-api)
+
 </div>
 
 ## Install

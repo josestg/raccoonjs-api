@@ -7,7 +7,6 @@
     "scripts": {
         "setup": "npm install",
         "build": "tsc",
-        "start": "node dist/index.js",
         "coverage": "jest --coverage",
         "test": "jest --verbose"
     },
@@ -27,8 +26,9 @@
         "request": "^2.88.0",
         "request-promise": "^4.2.5"
     },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/josestg/raccoon-api.git"
     },
     "files": [
         "dist/**/*"

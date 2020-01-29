@@ -37,7 +37,7 @@ Here we will make a simple bot that makes the bot can respond back when the user
 1. Create Project
 
     ```bash
-    $ mkdir raccoon-api-example && cd raccoohttps://github.com/yagop/node-telegram-bot-apin-api-example
+    $ mkdir raccoon-api-example && cd raccoon-api-example
     ```
 
 2. Init Nodejs Project

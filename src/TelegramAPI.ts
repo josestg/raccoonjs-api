@@ -83,8 +83,8 @@ export class TelegramAPI implements API {
      * @param msgId - Identifier of the message to edit.
      * @param opt - Optional parameter. [See](https://core.telegram.org/bots/api#editmessagetext)
      */
-    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message> {
-        return makeRequest<Message>({
+    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message | boolean> {
+        return makeRequest<Message | boolean>({
             method: "editMessageText",
             token: this.token,
             payload: {
@@ -146,8 +146,8 @@ export class TelegramAPI implements API {
      * @param msgId - Identifier of the message to edit.
      * @param opt - Optional parameter. [See](https://core.telegram.org/bots/api#editmessagecaption).
      */
-    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message> {
-        return makeRequest<Message>({
+    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message | boolean> {
+        return makeRequest<Message | boolean>({
             method: "editMessageCaption",
             token: this.token,
             payload: {

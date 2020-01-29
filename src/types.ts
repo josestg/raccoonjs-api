@@ -223,11 +223,11 @@ export type QueryHandler = (query: CallbackQuery) => void;
  */
 export interface API {
     sendText(chatId: ChatId, text: string, opt?: SendTextOpt): Promise<Message>;
-    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message>;
+    editText(chatId: ChatId, msgId: number, opt?: editTextOpt): Promise<Message | boolean>;
     deleteText(chatId: ChatId, msgId: number): Promise<boolean>;
 
     sendPhoto(chatId: ChatId, photo: PathLike, opt?: sendPhotoOpt): Promise<Message>;
-    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message>;
+    editMessageCaption(chatId: ChatId, msgId: number, opt?: editCaptionOpt): Promise<Message | boolean>;
 
     answerCallbackQuery(id: string, text: string, showAlert: boolean): Promise<boolean>;
 }

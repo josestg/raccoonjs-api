@@ -31,7 +31,6 @@ export function makeRequest<T>({ method, payload, token, multipart = false }: ma
                 const result: T = res.result;
                 resolve(result);
             })
-            .catch(err => reject(err))
-            .finally(() => console.log(method));
+            .catch(err => reject(err));
     });
 }

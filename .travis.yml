@@ -1,4 +1,6 @@
 language: nodejs
+node_js:
+    - "stable"
 
 before_script:
     - npm run setup
@@ -6,3 +8,7 @@ before_script:
 
 script:
     - npm run test
+
+cache:
+    directories:
+        - "node_modules"

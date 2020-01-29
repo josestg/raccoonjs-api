@@ -1,0 +1,17 @@
+tsconfig.json
+tslint.json
+.travis.yml
+.npmignore
+jest.config.js
+
+.github/
+assets/
+coverage/
+examples/
+docs/
+src/
+
+
+
+// npm pack
+raccoon-api-*.tgz

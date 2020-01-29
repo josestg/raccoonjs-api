@@ -27,6 +27,9 @@
         "request": "^2.88.0",
         "request-promise": "^4.2.5"
     },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "files": [
         "dist/**/*"
     ]

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>raccoon-api | raccoon-api</title>
+	<title>raccoonjs-api | raccoonjs-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2335,7 +2335,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">raccoon-api</a></strong>
+					<strong><a href="index.html">raccoonjs-api</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2451,17 +2451,23 @@ img {
 <div class="container container-main">
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
-			<h1 align="center">Raccoon API</h1>
+			<h1 align="center">Raccoonjs API</h1>
 			<div align="center">
 				A simple nodejs module to interact with Telegram Bot API.
 			</div>
 			<a href="#install" id="install" style="color: inherit; text-decoration: none;">
 				<h2>Install</h2>
 			</a>
-			<pre><code class="language-bash">$ yarn add raccoon-api</code></pre>
+			<pre><code class="language-bash">$ yarn add raccoonjs-api</code></pre>
 			<p>or</p>
-			<pre><code class="language-bash">$ npm i raccoon-api</code></pre>
+			<pre><code class="language-bash">$ npm i raccoonjs-api</code></pre>
 			<a href="#tutorial" id="tutorial" style="color: inherit; text-decoration: none;">
+
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>See <strong>raccoonjs-api</strong> documentation <a href="https://josestg.github.io/raccoonjs-api/">here</a>.</p>
+				<a href="#tutorial" id="tutorial" style="color: inherit; text-decoration: none;">
 				<h2>Tutorial</h2>
 			</a>
 			<p>In this tutorial we will first use <code>localhost</code> as a server to develop the Telegram bot, but at the end of this tutorial we will try to change <code>localhost</code> to <a href="https://dashboard.heroku.com/">Heroku</a> as a server.</p>
@@ -2477,13 +2483,13 @@ img {
 			<p>Here we will make a simple bot that makes the bot can respond back when the user sends <strong>certain commands</strong> to the bot. For example, when a user sends a message like this <code>&quot;/hello&quot;</code>, the bot will respond <code>&quot;Hello, &lt;your_name&gt;&quot;</code></p>
 			<ol>
 				<li><p>Create Project</p>
-					<pre><code class="language-bash"> $ mkdir raccoon-api-example &amp;&amp; <span class="hljs-built_in">cd</span> raccoon-api-example</code></pre>
+					<pre><code class="language-bash"> $ mkdir raccoonjs-api-example &amp;&amp; <span class="hljs-built_in">cd</span> raccoonjs-api-example</code></pre>
 				</li>
 				<li><p>Init Nodejs Project</p>
 					<pre><code class="language-bash"> $ npm init --yes</code></pre>
 				</li>
 				<li><p>Install Raccoon-api</p>
-					<pre><code class="language-bash"> $ npm install raccoon-api</code></pre>
+					<pre><code class="language-bash"> $ npm install raccoonjs-api</code></pre>
 				</li>
 				<li><p>Create App</p>
 					<pre><code class="language-bash"> $ touch index.js</code></pre>
@@ -2494,7 +2500,7 @@ img {
 					<pre><code class="language-js"> <span class="hljs-comment">// index.js</span>
 
  <span class="hljs-comment">// import the module</span>
- <span class="hljs-keyword">const</span> { TelegramAPI } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"raccoon-api"</span>);
+ <span class="hljs-keyword">const</span> { TelegramAPI } = <span class="hljs-built_in">require</span>(<span class="hljs-string">"raccoonjs-api"</span>);
 
  <span class="hljs-comment">// A unique authentication token see: https://core.telegram.org/bots/api#making-requests</span>
  <span class="hljs-keyword">const</span> YOUR_TOKEN = <span class="hljs-string">"123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"</span>;
@@ -2544,7 +2550,7 @@ img {
 			<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 				<h2>License</h2>
 			</a>
-			<p><a href="https://github.com/josestg/raccoon-api/blob/master/LICENSE">MIT</a></p>
+			<p><a href="https://github.com/josestg/raccoonjs-api/blob/master/LICENSE">MIT</a></p>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
@@ -2613,7 +2619,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Callback<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>chat_instance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">String</span><span class="tsd-signature-symbol">; </span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>from<span class="tsd-signature-symbol">: </span><a href="globals.html#user" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>message<span class="tsd-signature-symbol">?: </span><a href="globals.html#message" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L118">types.ts:118</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L118">types.ts:118</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2673,7 +2679,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Chat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>first_name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>last_name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>username<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L68">types.ts:68</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L68">types.ts:68</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2733,7 +2739,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Chat<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L139">types.ts:139</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L139">types.ts:139</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2748,7 +2754,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Command<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="globals.html#message" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L214">types.ts:214</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L214">types.ts:214</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2784,7 +2790,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Inline<wbr>Keyboard<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>callback_data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L168">types.ts:168</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L168">types.ts:168</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2820,7 +2826,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Inline<wbr>Keyboard<wbr>Markup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>inline_keyboard<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#inlinekeyboardbutton" class="tsd-signature-type">InlineKeyboardButton</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L158">types.ts:158</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L158">types.ts:158</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2848,7 +2854,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>chat<span class="tsd-signature-symbol">: </span><a href="globals.html#chat" class="tsd-signature-type">Chat</a><span class="tsd-signature-symbol">; </span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>edit_date<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>entities<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#messageentity" class="tsd-signature-type">MessageEntity</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span>from<span class="tsd-signature-symbol">?: </span><a href="globals.html#user" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">; </span>message_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>photo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#photosize" class="tsd-signature-type">PhotoSize</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span>reply_markup<span class="tsd-signature-symbol">?: </span><a href="globals.html#inlinekeyboardmarkup" class="tsd-signature-type">InlineKeyboardMarkup</a><span class="tsd-signature-symbol">; </span>text<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L18">types.ts:18</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L18">types.ts:18</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2935,7 +2941,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Message<wbr>Entity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>offset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>user<span class="tsd-signature-symbol">?: </span><a href="globals.html#user" class="tsd-signature-type">User</a><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L84">types.ts:84</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L84">types.ts:84</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2995,7 +3001,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Photo<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>file_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>file_size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>file_unique_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L100">types.ts:100</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L100">types.ts:100</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3055,7 +3061,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Query<wbr>Handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="globals.html#callbackquery" class="tsd-signature-type">CallbackQuery</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L219">types.ts:219</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L219">types.ts:219</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3091,7 +3097,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Send<wbr>Text<wbr>Opt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>parse_mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"HTML"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Markdown"</span><span class="tsd-signature-symbol">; </span>reply_markup<span class="tsd-signature-symbol">?: </span><a href="globals.html#inlinekeyboardmarkup" class="tsd-signature-type">InlineKeyboardMarkup</a><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L144">types.ts:144</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L144">types.ts:144</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3127,7 +3133,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>callback_query<span class="tsd-signature-symbol">?: </span><a href="globals.html#callbackquery" class="tsd-signature-type">CallbackQuery</a><span class="tsd-signature-symbol">; </span>edited_message<span class="tsd-signature-symbol">?: </span><a href="globals.html#message" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">; </span>message<span class="tsd-signature-symbol">?: </span><a href="globals.html#message" class="tsd-signature-type">Message</a><span class="tsd-signature-symbol">; </span>update_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L6">types.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L6">types.ts:6</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3179,7 +3185,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>first_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>is_bot<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>language_code<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>last_name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>username<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L50">types.ts:50</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L50">types.ts:50</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3247,7 +3253,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">edit<wbr>Caption<wbr>Opt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>caption<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>parse_mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>reply_markup<span class="tsd-signature-symbol">?: </span><a href="globals.html#inlinekeyboardmarkup" class="tsd-signature-type">InlineKeyboardMarkup</a><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L202">types.ts:202</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L202">types.ts:202</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3291,7 +3297,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">edit<wbr>Text<wbr>Opt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>parse_mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>reply_markup<span class="tsd-signature-symbol">?: </span><a href="globals.html#inlinekeyboardmarkup" class="tsd-signature-type">InlineKeyboardMarkup</a><span class="tsd-signature-symbol">; </span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L190">types.ts:190</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L190">types.ts:190</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3335,7 +3341,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">make<wbr>Request<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>multipart<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/services/telegram.ts#L8">services/telegram.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/services/telegram.ts#L8">services/telegram.ts:8</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -3362,7 +3368,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">send<wbr>Photo<wbr>Opt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>caption<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>disable_notification<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>parse_mode<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/types.ts#L178">types.ts:178</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/types.ts#L178">types.ts:178</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3409,7 +3415,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">METHOD_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://api.telegram.org/bot%s/%s"</span><span class="tsd-signature-symbol"> = &quot;https://api.telegram.org/bot%s/%s&quot;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/services/telegram.ts#L6">services/telegram.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/services/telegram.ts#L6">services/telegram.ts:6</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -3419,7 +3425,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">WEBHOOK_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://api.telegram.org/bot%s/setWebhook?url&#x3D;%s"</span><span class="tsd-signature-symbol"> = &quot;https://api.telegram.org/bot%s/setWebhook?url&#x3D;%s&quot;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/TelegramAPI.ts#L21">TelegramAPI.ts:21</a></li>
+						<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/TelegramAPI.ts#L21">TelegramAPI.ts:21</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -3436,7 +3442,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/Markup.ts#L8">Markup.ts:8</a></li>
+								<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/Markup.ts#L8">Markup.ts:8</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3469,7 +3475,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/Markup.ts#L31">Markup.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/Markup.ts#L31">Markup.ts:31</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3518,7 +3524,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/Markup.ts#L15">Markup.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/Markup.ts#L15">Markup.ts:15</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3551,7 +3557,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/Markup.ts#L23">Markup.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/Markup.ts#L23">Markup.ts:23</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3592,7 +3598,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/josestg/raccoon-api/blob/77a171e/src/services/telegram.ts#L15">services/telegram.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/josestg/raccoonjs-api/blob/77a171e/src/services/telegram.ts#L15">services/telegram.ts:15</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>

@@ -1,28 +1,27 @@
-<h1 align="center">Raccoon API</h1>
+<h1 align="center">Raccoonjs API</h1>
 
 <div align="center">
     A simple nodejs module to interact with Telegram Bot API.
     
-[![Build Status](https://travis-ci.org/josestg/raccoon-api.svg?branch=master)](https://travis-ci.org/josestg/raccoon-api)
+[![Build Status](https://travis-ci.org/josestg/raccoonjs-api.svg?branch=master)](https://travis-ci.org/josestg/raccoonjs-api)
 
 </div>
 
 ## Install
 
 ```bash
-$ yarn add raccoon-api
+$ yarn add raccoonjs-api
 ```
 
 or
 
 ```bash
-$ npm i raccoon-api
+$ npm i raccoonjs-api
 ```
 
 ## Documentation
-See **racoon-api** documentation [here](https://josestg.github.io/raccoon-api/).
 
-
+See **raccoonjs-api** documentation [here](https://josestg.github.io/raccoonjs-api/).
 
 ## Tutorial
 
@@ -45,7 +44,7 @@ Here we will make a simple bot that makes the bot can respond back when the user
 1. Create Project
 
     ```bash
-    $ mkdir raccoon-api-example && cd raccoon-api-example
+    $ mkdir example && cd example
     ```
 
 2. Init Nodejs Project
@@ -54,10 +53,10 @@ Here we will make a simple bot that makes the bot can respond back when the user
     $ npm init --yes
     ```
 
-3. Install Raccoon-api
+3. Install Raccoonjs-api
 
     ```bash
-    $ npm install raccoon-api
+    $ npm install raccoonjs-api
     ```
 
 4. Create App
@@ -78,7 +77,7 @@ Here we will make a simple bot that makes the bot can respond back when the user
     // index.js
 
     // import the module
-    const { TelegramAPI } = require("raccoon-api");
+    const { TelegramAPI } = require("raccoonjs-api");
 
     // A unique authentication token see: https://core.telegram.org/bots/api#making-requests
     const YOUR_TOKEN = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11";
@@ -137,4 +136,4 @@ Thanks for giving the internship opportunity as a Back End Developer, this proje
 
 ## License
 
-[MIT](https://github.com/josestg/raccoon-api/blob/master/LICENSE)
+[MIT](https://github.com/josestg/raccoonjs-api/blob/master/LICENSE)

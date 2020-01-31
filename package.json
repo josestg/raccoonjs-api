@@ -1,5 +1,5 @@
 {
-    "name": "raccoon-api",
+    "name": "raccoonjs-api",
     "version": "1.0.0",
     "description": "A Simple Node.js Module to Interact withh Telegram Bot API",
     "main": "dist/TelegramAPI",
@@ -28,7 +28,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/josestg/raccoon-api.git"
+        "url": "git+https://github.com/josestg/raccoonjs-api.git"
     },
     "files": [
         "dist/**/*"
